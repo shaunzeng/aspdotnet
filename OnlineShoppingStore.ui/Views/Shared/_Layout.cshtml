@@ -1,0 +1,39 @@
+﻿@using OnlineShoppingStore.ui.Helpers
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <header class="container">
+        <h3>Student Admin</h3>
+        <br>
+        <nav>
+            <ul class="nav nav-tabs">
+                <li class="nav-item @Html.isSelected("Home","Index","active")"> @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                <li class="nav-item @Html.isSelected("Courses","Index","active")">@Html.ActionLink("Courses", "Index", "Courses", new { area = "" }, new { @class = "nav-link" })</li>
+                <li class="nav-item @Html.isSelected("Quizzes","Index","active")">@Html.ActionLink("Quizzes", "Index", "Quizzes", new { area = "" }, new { @class = "nav-link" })</li>
+                <li class="nav-item @Html.isSelected("EditAccount","Index","active")">@Html.ActionLink("EditAccount", "Index", "EditAccount", new { area = "" }, new { @class = "nav-link" })</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container body-content">
+        @RenderBody() 
+    </main>
+
+    <footer class="container">
+        <p>&copy; @DateTime.Now.Year - Shaun</p>
+    </footer>
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/scripts/Custome.js"></script>
+</body>
+</html>

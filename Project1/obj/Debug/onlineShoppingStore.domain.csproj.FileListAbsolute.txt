@@ -1,0 +1,2 @@
+C:\Users\shaunzeng\Documents\Visual Studio 2015\Projects\student_admin\Project1\obj\Debug\onlineShoppingStore.domain.csprojResolveAssemblyReference.cache
+C:\Users\shaunzeng\Documents\Visual Studio 2015\Projects\student_admin\Project1\bin\Debug\Project1.exe.config

@@ -1,0 +1,172 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<br>
+<div class="row">
+    <div class="col-md-7">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <p>Welcome back, Shaun</p>
+            </li>
+        </ul>
+        <br>
+
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-7">
+                        <h5>Your courses</h5>
+                    </div>
+                    <div class="col-xs-5">
+                        <a href="/courses" class="btn  btn-sm">View All</a>
+                    </div>
+                </div>
+            </li>
+
+            @{
+                var coursesData = ViewBag.courses;
+                foreach (var c in coursesData)
+                {
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-7">
+                                <a href="/courses/">@c.CourseName</a> <span class="tag tag-info">@c.CourseCompletion %</span>
+                            </div>
+                            <div class="col-xs-5">
+                                <!--div class="text-xs-center" id="example-caption-3"><small>{{c.courseCompletion}}%</small></div-->
+                                <!--progress class="progress" value=@c.CourseCompletion max="100" aria-describedby="example-caption-3"></progress -->
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow=@c.CourseCompletion aria-valuemin="0" aria-valuemax="100" style="width: @c.CourseCompletion%;">
+                                        @c.CourseCompletion%
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                }
+            }
+        </ul>
+        <br>
+
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-7">
+                        <h5>Your Quizzes</h5>
+                    </div>
+                    <div class="col-xs-5">
+                        <a href="/quizzes" class="btn btn-sm">View All</a>
+                    </div>
+                </div>
+            </li>
+
+            @{
+                var quizzes = ViewBag.quizzes;
+                foreach (var q in quizzes)
+                {
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-7">
+                                <p><a href="">@q.QuizName</a> <br> <small>Course: <a href="">@q.forCourse</a></small></p>
+                            </div>
+                            <div class="col-xs-5">                       
+
+                                @{
+                                    if (q.isTaken == false)
+                                    {
+                                    <div><a class="btn btn-sm">Take the quiz now</a></div>
+                                    }
+                                    else
+                                    {
+                                    <div><span class="tag tag-danger">@q.QuizResult</span> "@q.QuizLevel"</div>
+                                        }
+                                    }
+
+                            </div>
+                        </div>
+                    </li>
+                }
+            }
+            
+        </ul>
+    </div>
+
+    <div class="col-md-5">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <h6>Billing Center</h6>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="" class="btn  btn-sm">View All</a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-8">
+                        Your Balance:
+                    </div>
+                    <div class="col-xs-4">
+                        $8798.00
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <br>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <h6>Inbox</h6>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="/" class="btn  btn-sm">View All</a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <p>No new message...</p>
+            </li>
+        </ul>
+
+        <br>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <h6>Scholarship Status</h6>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="/" class="btn  btn-sm">View All</a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item" >
+                <div class="row">
+                    <div class="col-xs-8">
+                        <a href="#">Student grant</a>
+                    </div>
+                    <div class="col-xs-4">
+                        <span class="label label-info">Pending..</span>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <a href="#">Student grant 2</a>
+                    </div>
+                    <div class="col-xs-4">
+                        <span class="label label-success">Approved</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+

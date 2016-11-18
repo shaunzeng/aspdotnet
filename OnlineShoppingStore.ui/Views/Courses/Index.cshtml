@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<br>
+<div class="row">
+    @{
+        var courses = ViewBag.courses;
+
+        foreach (var c in courses)
+        {
+            <div class="col-xs-6">
+                <div class="thumbnail" style="margin-bottom:20px">
+                    <img class="card-img-top"
+                         src="http://learnplus.themekit.io/assets/images/gulp.png"
+                         alt="Card image cap"
+                         style="display:block; width:100%">
+                    <div class="caption">
+                        <h5>@c.CourseName</h5>
+                        <p class="card-text small" style="height:42px;overflow:hidden">@c.CourseInstructor</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Detail</a> 
+                    </div>
+                </div>
+            </div>
+
+        }
+    } 
+</div>
+
